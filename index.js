@@ -22,3 +22,11 @@ bot.onText(/\/dolar/, (msg) => {
     bot.sendMessage(msg.chat.id, `${USD.name} R$ ${USD.high}`);
   });
 });
+
+bot.onText(/\/euro/, (msg) => {
+  axios.get("https://economia.awesomeapi.com.br/json/all").then((response) => {
+    const { EUR } = response.data;
+    bot.sendMessage(msg.chat.id, `${EUR.name} R$ ${EUR.high}`);
+  });
+});
+
