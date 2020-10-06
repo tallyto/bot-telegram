@@ -30,3 +30,6 @@ bot.onText(/\/euro/, (msg) => {
   });
 });
 
+bot.onText(/\/suamae/, (msg) => {
+  bot.sendMessage(msg.chat.id, `aquela safada 😈`);
+});
