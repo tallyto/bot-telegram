@@ -8,11 +8,11 @@ const getCurrency = async (currency) => {
         currency: 'BRL'
     }
 
-    if(currencys.includes(currency)) {
+    if(currencys.includes(currency.toUpperCase())) {
         const response = await axios.get(`${currencyAPI}/${currency}-BRL`)
-        const { high, name } = response.data[currency]
+        const { high, name } = response.data[currency.toUpperCase()]
 
-        return `${name} - ${Number(high).toLocaleString('pt-BR', options)}` 
+        return `${name} - ${Number(high).toLocaleString('pt-BR', options)} 💸` 
     }
 
     return 'Comando inválido. Para saber os comandos válidos, digite:\n\n/currency help'
