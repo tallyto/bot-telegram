@@ -10,7 +10,7 @@ const getCurrency = async (currency) => {
 
     if(currencys.includes(currency)) {
         const response = await axios.get(`${currencyAPI}/${currency}-BRL`)
-        const { high, name } = response.data.USD
+        const { high, name } = response.data[currency]
 
         return `${name} - ${Number(high).toLocaleString('pt-BR', options)}` 
     }
