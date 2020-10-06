@@ -7,9 +7,28 @@ const bot = new TelegramBot(TOKEN, { polling: true });
  */
 const currency = require('./src/commands/currency');
 const start = require('./src/commands/start');
-const { suamae, seupai } = require('./src/commands/jokes');
+const { suamae, seupai, bug } = require('./src/commands/jokes');
 
-bot.onText(/\/currency (.+)/, (msg, match) => currency(bot, msg, match));
+bot.on('callback_query', (callbackQuery) => {
+  switch (callbackQuery.data){
+    case 'currency':
+      currency(bot, callbackQuery.message, 'help');
+      break;
+    
+    case 'seupai':
+      seupai(bot, callbackQuery.message);
+      break;
+
+    case 'suamae':
+      suamae(bot, callbackQuery.message);
+      break;
+
+    case 'bug':
+      bug(bot, callbackQuery.message);
+      break;
+  }
+})
+bot.onText(/\/currency (.+)/, (msg, match) => currency(bot, msg, match[1]));
 bot.onText(/\/start/, (msg) => start(bot, msg));
 
 /**
@@ -17,6 +36,7 @@ bot.onText(/\/start/, (msg) => start(bot, msg));
  */
 bot.onText(/\/suamae/, (msg) => suamae(bot, msg))
 bot.onText(/\/seupai/, (msg) => seupai(bot, msg))
+bot.onText(/\/bug/, (msg) => bug(bot, msg))
 
 bot.on("new_chat_members", (msg) => {
   bot.sendMessage(
