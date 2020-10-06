@@ -1,8 +1,7 @@
 const getCurrency = require('../util/getCurrency');
 
 // bot.onText(/\/currency (.+)/, 
-const currency = async (bot, msg, match) => {
-    const currency = match[1];
+const currency = async (bot, msg, currency) => {
     const response = await getCurrency(currency.toUpperCase());
   
     if (currency == 'help'){
