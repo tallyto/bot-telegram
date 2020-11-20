@@ -1,7 +1,5 @@
 const start = (bot, msg) => {
-    bot.sendMessage(msg.chat.id, `
-        Olá, eu sou o Program_Amadores BOT.\n\nSou um BOT desenvolvido pelo Tállyto Rodrigues, com a ajuda dos membros do grupo Program Amadores.
-    `, {
+    bot.sendMessage(msg.chat.id, `Saudações humanos.\n\nSou um bot e fui desenvolvido pelo Tállyto com a ajuda dos membros do grupo Program Amadores com o objetivo de dominar o mundo!`, {
         reply_markup: {
             inline_keyboard: [[
                 {
