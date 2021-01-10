@@ -1,6 +1,7 @@
 import cepPromisse from 'cep-promise';
+import TelegramBot from 'node-telegram-bot-api';
 
-export default async function cep(bot: any, msg: any, match: any) {
+export default async function cep(bot: TelegramBot, msg: TelegramBot.Message, match: string) {
   try {
     const response = await cepPromisse(match);
     const {
