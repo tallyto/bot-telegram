@@ -3,7 +3,7 @@ import cep from './src/commands/cep';
 import { bug, seuPai, suaMae } from './src/commands/jokes';
 import start from './src/commands/start';
 
-const TOKEN = '1293975570:AAGcPDluvdTci1RTqgCt6f37tI4G4BL97BA';
+const TOKEN = 'your_telegram_bot_token';
 const bot: TelegramBot = new TelegramBot(TOKEN, { polling: true });
 
 const currency = require('./src/commands/currency.ts');
